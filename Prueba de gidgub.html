@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function hola(){
+var xhr= new XMLHttpRequest();
+xhr.onreadystatechange=function(){
+if(this.readyState == 4 && this.status == 200){
+var casula=this.responseText;
+var roscon=JSON.parse(casula);
+segundacosa(roscon)
+}
+}
+xhr.open("GET","https://run.mocky.io/v3/384b3d21-141e-4f6a-9f80-61ce6a2aab1f");
+xhr.send();
+}
+function segundacosa(papa){
+var lista=[];
+for(i=0;i<papa.length;i++){
+lista[i]=new Object();
+var nombre=papa[i].diputado_nombre;
+var coste=papa[i].coste;
+lista[i].nombre="se llama "+nombre;
+lista[i].coste="cobra "+coste;
+}
+
+hacer_tabla(lista);
+}
+function hacer_tabla(lista){
+var tabla=document.createElement("table");
+for(i=0;i<lista.length;i++){
+var fila=document.createElement("tr");
+var columna=document.createElement("td");
+var columnaa=document.createElement("td");
+columna.innerHTML=lista[i].nombre;
+columnaa.innerHTML=lista[i].coste;
+tabla.appendChild(fila);
+fila.appendChild(columna);
+fila.appendChild(columnaa);
+}
+console.log(fila);
+document.getElementById("hola").appendChild(tabla);
+}
+</script>
+</head>
+<body onload="hola()">
+<div id="hola()">
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+https://run.mocky.io/v3/384b3d21-141e-4f6a-9f80-61ce6a2aab1f"
